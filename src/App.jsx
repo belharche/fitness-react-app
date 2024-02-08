@@ -1,3 +1,5 @@
+import { BrowserRouter, Switch, Router } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -30,25 +32,27 @@ function App() {
   },[])
 
   return (
-    <div className="app bg-gray-20">
-      <Navbar
-        isTopPage={isTopPage}
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}/>
-      <Home
-        setSelectedPage={setSelectedPage}
-      />
-      <Benefits
-        setSelectedPage={setSelectedPage}
-      />
-      <Classes
-        setIsTopPage={setSelectedPage}
-      />
-      <Contact
-        setSelectedPage={setSelectedPage}
-      />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="app bg-gray-20">
+        <Navbar
+          isTopPage={isTopPage}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}/>
+        <Home
+          setSelectedPage={setSelectedPage}
+        />
+        <Benefits
+          setSelectedPage={setSelectedPage}
+        />
+        <Classes
+          setIsTopPage={setSelectedPage}
+        />
+        <Contact
+          setSelectedPage={setSelectedPage}
+        />
+        <Footer />
+      </div>
+    </BrowserRouter>
   )
 }
 

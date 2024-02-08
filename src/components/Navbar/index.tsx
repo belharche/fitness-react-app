@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from '../../assets/Logo.png';
-import Link from "./Link";
+import NavLink from "./NavLink.tsx";
 import useMediaQuery from '../../hooks/useMediaQuery.ts';
 import ActionBtn from "../../shared/ActionBtn.tsx";
 import SelectedPageEnum from "../../shared/SelectedPageEnum.ts";
+
+import { Link } from "react-router-dom";
 
 
 interface Props {
@@ -27,7 +29,6 @@ function Navbar({ isTopPage, selectedPage, setSelectedPage}: Props) {
       <div className={`${navBarBg} ${flexBetween} w-full py-6 z-30 fixed`}>
 
         <div className={`${flexBetween} mx-auto w-5/6 gap-16`}>
-          {/* <img src="" alt="logo" /> */}
           <img src={Logo} alt="logo" />
 
           {isAboveMediumeScreens ? (
@@ -35,28 +36,28 @@ function Navbar({ isTopPage, selectedPage, setSelectedPage}: Props) {
 
               <ul className={`${flexBetween} gap-8 text-sm`}>
                 <li>
-                  <Link
+                  <NavLink
                     page="Home"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage} />
                 </li>
 
                 <li>
-                  <Link
+                  <NavLink
                     page="Benefits"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage} />
                 </li>
 
                 <li>
-                  <Link
+                  <NavLink
                     page="Our Classes"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage} />
                 </li>
 
                 <li>
-                  <Link
+                  <NavLink
                     page="Contact Us"
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage} />
@@ -64,7 +65,7 @@ function Navbar({ isTopPage, selectedPage, setSelectedPage}: Props) {
               </ul>
 
               <div className={`${flexBetween} gap-8`}>
-                <button>Sign In</button>
+                <Link to="/login">Sign In</Link>
                 <ActionBtn
                   childern="Become a Member"
                   setSelectedPage={setSelectedPage}
@@ -103,28 +104,28 @@ function Navbar({ isTopPage, selectedPage, setSelectedPage}: Props) {
 
           <ul className="flex flex-col ml-[33%] gap-10 text-2xl">
             <li>
-              <Link
+              <NavLink
                 page="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage} />
             </li>
 
             <li>
-              <Link
+              <NavLink
                 page="Benefits"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage} />
             </li>
 
             <li>
-              <Link
+              <NavLink
                 page="Our Classes"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage} />
             </li>
 
             <li>
-              <Link
+              <NavLink
                 page="Contact Us"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage} />

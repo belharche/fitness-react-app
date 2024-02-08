@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Router } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
@@ -7,6 +7,7 @@ import Benefits from './components/Benefits';
 import Classes from './components/Classes';
 import Contact from './components/contact/index.tsx';
 import Footer from './components/Footer/index.tsx';
+import Login from './components/Login';
 import { SelectedPageEnum } from "./shared/SelectedPageEnum.ts";
 
 
@@ -38,19 +39,27 @@ function App() {
           isTopPage={isTopPage}
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}/>
-        <Home
-          setSelectedPage={setSelectedPage}
-        />
-        <Benefits
-          setSelectedPage={setSelectedPage}
-        />
-        <Classes
-          setIsTopPage={setSelectedPage}
-        />
-        <Contact
-          setSelectedPage={setSelectedPage}
-        />
-        <Footer />
+        <Switch>
+          <Route exact path="/">
+            <Home
+              setSelectedPage={setSelectedPage}
+            />
+            <Benefits
+              setSelectedPage={setSelectedPage}
+            />
+            <Classes
+              setIsTopPage={setSelectedPage}
+            />
+            <Contact
+              setSelectedPage={setSelectedPage}
+            />
+            <Footer />
+          </Route>
+
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
       </div>
     </BrowserRouter>
   )

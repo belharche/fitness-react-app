@@ -8,7 +8,7 @@ interface Props {
   setSelectedPage: (value: SelectedPageEnum) => void;
 }
 
-function Link({ page, selectedPage, setSelectedPage }: Props) {
+function NavLink({ page, selectedPage, setSelectedPage }: Props) {
   const lowerCaseVersion = page.toLowerCase().replace(/\s/g, '') as SelectedPageEnum;
   return(
     <AnchorLink
@@ -24,4 +24,4 @@ function Link({ page, selectedPage, setSelectedPage }: Props) {
   )
 }
 
-export default Link;
+export default NavLink;
